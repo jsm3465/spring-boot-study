@@ -1,6 +1,6 @@
 package org.example.springboot.web;
 
-import org.example.springboot.dto.HelloResponseDto;
+import org.example.springboot.web.dto.HelloResponseDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +14,7 @@ public class HelloController {
     }
 
     @GetMapping("/hello/dto")
-    public HelloResponseDto helloDto (@RequestParam String name, @RequestParam int amount){
+    public HelloResponseDto helloDto (@RequestParam String name, @RequestParam int amount) {
         return new HelloResponseDto(name, amount);
     }
 }
