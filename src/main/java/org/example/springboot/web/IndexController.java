@@ -1,5 +1,6 @@
 package org.example.springboot.web;
 
+import org.example.springboot.config.auth.dto.SessionUser;
 import org.example.springboot.service.PostsService;
 import org.example.springboot.web.dto.PostsResponseDto;
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import lombok.RequiredArgsConstructor;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * @author sangmin.ju (sangmin.ju@navercorp.com)
@@ -18,11 +21,17 @@ import lombok.RequiredArgsConstructor;
 public class IndexController {
 
     private final PostsService postsService;
+    private final HttpSession httpSession;
 
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("posts", postsService.findAllDesc());
+        SessionUser user = (SessionUser) httpSession.getAttribute("user");
         System.out.println(postsService.findAllDesc());
+
+        if(user != null) {
+            model.addAttribute("userName", user.getName());
+        }
         return "index";
     }
 
