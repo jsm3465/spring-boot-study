@@ -36,7 +36,7 @@ deploy:
     bucket: jsm-springboot-build
     key: jsm-springboot-webservice.zip
     application: jsm-springboot-webservice
-    deployment_group: jsm-springboot-webservice-group
+    deployment_group: jsm-springboot-service-group
     region: ap-northeast-2
     wait-until-deployed: true
 
