@@ -34,7 +34,7 @@ deploy:
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
     bucket: jsm-springboot-build
-    key: jsm-springboot-webservice.zip
+    key: jsm-springboot-study.zip
     application: jsm-springboot-webservice
     deployment_group: jsm-springboot-webservice-group
     region: ap-northeast-2
